@@ -36,6 +36,8 @@
 	<url>http://runelite.net</url>
 
 	<properties>
+		<sonar.organization>granqo123</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.outputTimestamp>1</project.build.outputTimestamp>
 		<java.release>8</java.release>
