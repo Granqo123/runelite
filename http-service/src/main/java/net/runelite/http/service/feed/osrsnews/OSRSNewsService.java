@@ -29,6 +29,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -51,8 +52,8 @@ import org.xml.sax.SAXException;
 public class OSRSNewsService
 {
 	private static final HttpUrl RSS_URL = HttpUrl.parse("https://services.runescape.com/m=news/latest_news.rss?oldschool=true");
-	private static final SimpleDateFormat PUB_DATE_FORMAT = new SimpleDateFormat("EEE, dd MMM yyyy '00:00:00 GMT'", Locale.US);
-
+	private  SimpleDateFormat PUB_DATE_FORMAT = new SimpleDateFormat("EEE, dd MMM yyyy '00:00:00 GMT'", Locale.US);
+	private Calendar calendar = Calendar.getInstance();
 	public List<FeedItem> getNews() throws IOException
 	{
 		Request request = new Request.Builder()
