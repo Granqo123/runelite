@@ -70,7 +70,7 @@ public class CacheClient implements AutoCloseable
 	private static final int MAX_REQUESTS = 19; // too many and the server closes the conncetion
 
 	private final Store store; // store cache will be written to
-	private final String host;
+	private final String host1;
 	private final int clientRevision;
 	private DownloadWatcher watcher;
 
@@ -87,10 +87,10 @@ public class CacheClient implements AutoCloseable
 		this(store, HOST, clientRevision);
 	}
 
-	public CacheClient(Store store, String host, int clientRevision)
+	public CacheClient(Store store, String host1, int clientRevision)
 	{
 		this.store = store;
-		this.host = host;
+		this.host1 = host1;
 		this.clientRevision = clientRevision;
 	}
 
@@ -113,7 +113,7 @@ public class CacheClient implements AutoCloseable
 				{
 					ChannelPipeline p = ch.pipeline();
 
-					//p.addFirst(new HttpProxyHandler(new InetSocketAddress("runelite.net", 3128)));
+
 					p.addLast("decoder", new HandshakeResponseDecoder());
 
 					p.addLast(
@@ -131,7 +131,7 @@ public class CacheClient implements AutoCloseable
 			});
 
 		// Start the client.
-		ChannelFuture f = b.connect(host, PORT).syncUninterruptibly();
+		ChannelFuture f = b.connect(host1, PORT).syncUninterruptibly();
 		channel = f.channel();
 	}
 
