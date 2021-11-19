@@ -24,7 +24,7 @@
  */
 package net.runelite.protocol.api.handshake;
 
-public abstract class HandshakePacket
+public interface HandshakePacket
 {
 
 }

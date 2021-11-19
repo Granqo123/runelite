@@ -37,7 +37,8 @@ class CacheDAO
 {
 	// cache prepared statements for high volume queries
 	private Query associateArchive;
-	private Query findArchive, insertArchive;
+	private Query findArchive;
+	private Query insertArchive;
 	private Query associateFile;
 
 	public CacheEntry findMostRecent(Connection con)
